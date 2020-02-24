@@ -5,7 +5,7 @@
  */
 
 // Project constants
-define('PROJECT_NAME', 'halo');
+define('PROJECT_NAME', 'blog');
 define('PROJECT_SESSION_ID', 'SESSID_HALO'); // For separating sessions of multiple Halo projects running on same server
 define('DEFAULT_CONTROLLER', 'welcome');
 define('DEVELOPER_EMAIL', 'dev@example.com'); // Where to send errors
