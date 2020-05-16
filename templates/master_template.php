@@ -11,10 +11,10 @@
     <title><?= PROJECT_NAME ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/components/bootstrap/css/bootstrap.min.css?<?=COMMIT_HASH?>" rel="stylesheet">
+    <link href="vendor/components/bootstrap/css/bootstrap.css?<?=COMMIT_HASH?>" rel="stylesheet">
 
     <!-- jQuery UI core CSS -->
-    <link href="vendor/components/jqueryui/themes/base/jquery-ui.min.css?<?=COMMIT_HASH?>" rel="stylesheet">
+    <link href="vendor/components/jqueryui/themes/base/jquery-ui.css?<?=COMMIT_HASH?>" rel="stylesheet">
 
     <!-- Site core CSS -->
     <link href="assets/css/main.css?<?=COMMIT_HASH?>" rel="stylesheet">
@@ -27,7 +27,7 @@
 
 
     <!-- jQuery -->
-    <script src="vendor/components/jquery/jquery.min.js?<?=COMMIT_HASH?>"></script>
+    <script src="vendor/components/jquery/jquery.js?<?=COMMIT_HASH?>"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -40,59 +40,37 @@
 
 <body>
 
-<!-- Fixed navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+!-- Fixed navbar -->
+<!-- navbar with dropdown -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><?= PROJECT_NAME ?></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li <?= $controller == 'welcome' ? 'class="active"' : '' ?>><a href="#">Home</a></li>
-                <li <?= $controller == 'halo' ? 'class="active"' : '' ?>><a href="halo">Halo admin</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><? __('Action') ?></a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $_SESSION['language'] ?> <b
-                                class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <?php foreach ($supported_languages as $language): ?>
-                            <li><a href="<?= $controller ?>?language=<?= $language ?>"
-                                   class="<?= $language == $_SESSION['language'] ? 'active' : '' ?>"><?= $language ?></a>
-                            </li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-                <li><a href="settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                <li title="<?=__('Log out')?> <?= $auth->name ?>"><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></a></li>
-        </div>
-        <!--/.nav-collapse -->
+        <a class="navbar-brand" href="#"><?= PROJECT_NAME ?></a>
+        <ul class="navbar-nav">
+            <li class="nav-item <?= $controller == 'posts' ? 'active' : '' ?>"><a class="nav-link" href="<?php echo BASE_URL;?>">Posts</a></li>
+            <li class="nav-item <?= $controller == 'tags' ? 'active' : '' ?>"><a class="nav-link" href="<?php echo BASE_URL;?>tags">Tags</a></li>
+            <li class="nav-item <?= $controller == 'users' ? 'active' : '' ?>"><a class="nav-link" href="<?php echo BASE_URL;?>users">Users</a></li>
+            <li class="nav-item <?= $controller == 'halo' ? 'active' : '' ?>"><a class="nav-link" href="halo">Halo admin</a></li>
+            <!-- dropdown list item start-->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?= $_SESSION['language'] ?></a>
+                <div class="dropdown-menu">
+                    <?php foreach ($supported_languages as $language): ?>
+                        <a href="<?= $controller ?>?language=<?= $language ?>"
+                           class="<?= $language == $_SESSION['language'] ? 'active' : '' ?>"><?= $language ?></a>
+                    <?php endforeach ?>
+                </div>
+            </li>
+            <!-- dropdown list item end -->
+            <li title="<?=__('Log out')?> <?= $auth->name ?>" class="nav-item"><a class="nav-link" href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true">Log Out</a></li>
+        </ul>
     </div>
 </nav>
-
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
     <?php if (!file_exists("views/$controller/{$controller}_$action.php")) error_out('The view <i>views/' . $controller . '/' . $controller . '_' . $action . '.php</i> does not exist. Create that file.'); ?>
     <?php @require "views/$controller/{$controller}_$action.php"; ?>
-    
+
 </div>
 <!-- /container -->
 
@@ -102,8 +80,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="vendor/components/bootstrap/js/bootstrap.min.js?<?=COMMIT_HASH?>"></script>
-<script src="vendor/components/jqueryui/jquery-ui.min.js?<?=COMMIT_HASH?>"></script>
+<script src="vendor/components/bootstrap/js/bootstrap.js?<?=COMMIT_HASH?>"></script>
+<script src="vendor/components/jqueryui/jquery-ui.js?<?=COMMIT_HASH?>"></script>
 <script src="assets/js/main.js?<?=COMMIT_HASH?>"></script>
 </body>
 </html>
