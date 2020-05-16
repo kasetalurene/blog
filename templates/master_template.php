@@ -40,7 +40,7 @@
 
 <body>
 
-!-- Fixed navbar -->
+<!-- Fixed navbar -->
 <!-- navbar with dropdown -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
