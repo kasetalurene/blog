@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Loomise aeg: Mai 16, 2020 kell 02:39 PL
+-- Loomise aeg: Mai 16, 2020 kell 03:00 PL
 -- Serveri versioon: 10.4.11-MariaDB
 -- PHP versioon: 7.4.1
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `translations` (
   `action` varchar(20) NOT NULL,
   PRIMARY KEY (`translation_id`),
   UNIQUE KEY `language_phrase_controller_action_index` (`language`,`phrase`,`controller`,`action`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Andmete tõmmistamine tabelile `translations`
@@ -91,7 +91,10 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 (23, 'Wrong username or password', 'en', '{untranslated}', 'global', 'global'),
 (24, 'Oops...', 'en', '{untranslated}', 'global', 'global'),
 (25, 'Close', 'en', '{untranslated}', 'global', 'global'),
-(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global');
+(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global'),
+(27, 'Oops...', 'et', '{untranslated}', 'global', 'global'),
+(28, 'Close', 'et', '{untranslated}', 'global', 'global'),
+(29, 'Server returned an error. Please try again later ', 'et', '{untranslated}', 'global', 'global');
 
 -- --------------------------------------------------------
 
